@@ -123,6 +123,7 @@
             startSound.play();
 
             document.addEventListener('keydown', fly);
+		document.addEventListener('touchstart', fly); // ✅ Added touch event for mobile
             gameLoopInterval = setInterval(gameLoop, 20);
             pipeInterval = setInterval(generatePipes, 1500);
         }
@@ -234,6 +235,7 @@
             clearInterval(gameLoopInterval);
             clearInterval(pipeInterval);
             document.removeEventListener('keydown', fly);
+		document.removeEventListener('touchstart', fly); // ✅ Remove touch event on reset
 
             // Remove all pipes
             const pipes = document.querySelectorAll('.pipe');
